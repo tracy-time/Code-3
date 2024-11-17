@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo__icon {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+        header .search-box {
+        height: 30px;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        padding: 0 30px 0 10px;
+        box-shadow: 1px 2px 2px rgba(66, 63, 63, 0.05);
+        }
+        .product-details_size {
+            margin-top: 24px;
+            order: 5;
+        }
+        .product-detail__size label span {
+            width: 48px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #e7e8e9;
+        }
+        .text-uppercase {
+            text-transform: uppercase !important;
+        }
+        div, span{
+            border: 0;
+            font-size: 100%;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            vertical-align: baseline;
+        }
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+
+        div{
+            display: block;
+            unicode-bidi: isolate;
+        }
+        
+        .product-detail__size label {
+            display: inline-flex;
+            cursor: pointer;
+        }
+
+        label {
+            cursor: default;
+        }
+
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+        .left-section {
+            flex: 2;
+        }
+        .right-section {
+            flex: 3;
+            padding: 20px;
+            background-color: white;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+        .right-section h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .right-section .price {
+            color: #d4cfc9;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .right-section .rating {
+            color: orange;
+            margin-bottom: 15px;
+        }
+        .image-gallery {
+            display: flex;
+            margin-top: 10px;
+        }
+        .image-gallery img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        .quantity-control {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .quantity-control button {
+            width: 30px;
+            height: 30px;
+            background-color: #050505;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .quantity-control input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #050505;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        .buttons {
+            margin-top: 20px; /* Move buttons down */
+        }
+        .buttons button {
+            padding: 10px 20px;
+            background-color: #020202;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .black { background-color: black; }
+        .red { background-color: red; }
+        .green { background-color: green; }
+        .blue { background-color: blue; }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50">
+        <!-- Hình chuông -->
+        <path d="M12 2C9.79 2 8 3.79 8 6V14C8 15.61 7.11 17.06 6 18.07V19H18V18.07C16.89 17.06 16 15.61 16 14V6C16 3.79 14.21 2 12 2ZM12 0C14.21 0 16 2 16 6V14C16 15.39 16.78 16.68 17.89 17.48C17.43 17.79 17 18.35 17 19H7C7 18.35 6.57 17.79 6.11 17.48C7.22 16.68 8 15.39 8 14V6C8 2 9.79 0 12 0ZM10 19H14V20H10V19Z" fill="#000000"/>
+      </svg>
+      
+    <header>
+        <div class="logo">
+            <img src="./logo.png" alt="" class="logo__icon">
+        </div>
+        <input type="text" name id class="search-box" placeholder="Tìm kiếm" autocomplete="off" minlength="1">
+    </header>
+
+    <div class="container">
+        <div class="left-section">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image" style="width: 300px; border-radius: 10px;">
+            <div class="image-gallery">
+                <img src="https://via.placeholder.com/100" alt="Gallery Image">
+                <img src="https://via.placeholder.com/100" alt="Gallery Image">
+                <img src="https://via.placeholder.com/100" alt="Gallery Image">
+            </div>
+        </div>
+        <div class="right-section">
+            <h1>Thêm sản phẩm</h1>
+            <div class="price">Giá sản phẩm</div>
+            <div class="rating">Đánh giá sản phẩm</div>
+            <p>Free shipping, 15-day return, and product insurance included.</p>
+
+            <!-- Quantity Control Section -->
+            <div class="quantity-control">
+                <button onclick="decreaseQuantity()">-</button>
+                <input type="text" id="quantity" value="1" readonly>
+                <button onclick="increaseQuantity()">+</button>
+            </div>
+
+    <div class="product-detail__size">
+        <div class="product-detail__size__input">
+            <label>
+                <input type="radio" name="size" value="s" data-quantity="10" data-product-sub-id="196567" data-product-sub-key="6710M8829K020023">
+                <span class="text-uppercase">s</span>
+            </label>
+
+            <label>
+                <input type="radio" name="size" value="m" data-quantity="19" data-product-sub-id="196569" data-product-sub-key="6720M8829K020023">
+                <span class="text-uppercase">m</span>
+            </label>
+
+            <label>
+                <input type="radio" name="size" value="l" data-quantity="18" data-product-sub-id="196572" data-product-sub-key="6730M8829K020023">
+                <span class="text-uppercase">l</span>
+            </label>
+
+            <label>
+                <input type="radio" name="size" value="xl" data-quantity="9" data-product-sub-id="196574" data-product-sub-key="6740M8829K020023">
+                <span class="text-uppercase">xl</span>
+            </label>
+
+            <label>
+                <input type="radio" name="size" value="xxl" data-quantity="7" data-product-sub-id="196576" data-product-sub-key="6750M8829K020023">
+                <span class="text-uppercase">xxl</span>
+            </label>                                                                                                    
+        </div>
+    </div>
+        
+            <!-- Buttons -->
+            <div class="buttons">
+                <button>Add to Cart</button>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let quantity = 1;
+
+        function increaseQuantity() {
+            quantity++;
+            document.getElementById('quantity').value = quantity;
+        }
+
+        function decreaseQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').value = quantity;
+            }
+        }
+    </script>
+</body>
+</html>
